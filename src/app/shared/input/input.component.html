@@ -1,1 +1,26 @@
-<p>input works!</p>
+<div class="field">
+    <label>{{ label }}</label>
+    <input [type]="inputType" [formControl]="control">
+    <div *ngIf="showError()" class="ui pointing red basic label">
+        <p *ngIf="control.errors.required">Value is required</p>
+        <p *ngIf="control.errors.minlength">
+            Value must be longer than
+            {{ control.errors.minlength.requiredLength }} 
+            character
+        </p>
+        <p *ngIf="control.errors.maxlength">
+            Value must be shorter thatn
+            {{ control.errors.maxlength.requiredLength}}
+            character
+        </p>
+        <p *ngIf="control.errors.pattern">
+            Invalid format
+        </p>
+        <p *ngIf="control.errors.notUnique">
+            This username is not available
+        </p>
+        <p *ngIf="control.errors.noConnection">
+            There is no internet connection
+        </p>
+    </div>
+</div>

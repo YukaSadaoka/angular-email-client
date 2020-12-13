@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { MatchPassword } from '../validators/match-password';
 import { UniqueUsername } from '../validators/unique-username';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -10,7 +13,12 @@ import { UniqueUsername } from '../validators/unique-username';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  constructor(private passwordValidator: MatchPassword, private usernameValidator: UniqueUsername){}
+  constructor(
+    private passwordValidator: MatchPassword,
+    private usernameValidator: UniqueUsername,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   authForm = new FormGroup({
     username: new FormControl('',[
@@ -24,15 +32,38 @@ export class SignupComponent implements OnInit {
     ]),
     password: new FormControl('',[
       Validators.required,
-      Validators.minLength(3),
+      Validators.minLength(6),
       Validators.maxLength(15)
     ]),
-    passwordConfirm: new FormControl('',[
+    passwordConfirmation: new FormControl('',[
       Validators.required,
-      Validators.minLength(3),
+      Validators.minLength(6),
       Validators.maxLength(15)
     ]),
   }, { validators: [this.passwordValidator.validate]});
 
   ngOnInit(): void {}
+
+  onSubmit(){
+    console.log('on submit')
+    if (this.authForm.invalid){
+      return;
+    }
+
+    this.authService.signup(this.authForm.value)
+    .subscribe({
+      next: response => {
+        this.router.navigateByUrl('/inbox');
+      },
+      error: err => {
+        console.log("error detected")
+        if (!err.status){
+          this.authForm.setErrors({ noConnection: true });
+        }else{
+          this.authForm.setErrors({ unknownError: true });
+        }
+      }
+    });
+  }
+
 }
