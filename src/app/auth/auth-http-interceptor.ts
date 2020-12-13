@@ -11,7 +11,7 @@ import { filter, tap } from 'rxjs/operators';
 
 @Injectable()
 export class AuthHttpInterceptor implements HttpInterceptor{
-
+    
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
         // Workaround for modifying the read only property of the outgoing request
         const modifiedReq = req.clone({

@@ -14,6 +14,7 @@ export class SigninComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) { }
  
+  // Signin ReactiveForm  
   signinForm = new FormGroup({
     username: new FormControl('',[
       Validators.required,

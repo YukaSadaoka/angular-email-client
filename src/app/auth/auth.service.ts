@@ -4,25 +4,30 @@ import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 
+// For checkUsernameAvail()
 interface UserAvailResponse{
   available: boolean;
 }
 
+// For signup()
 interface SignupCredentials{
   username: string;
   password: string;
   passwordConfirmation: string;
 }
 
+// For signup()
 interface SignupResponse{
   username: string;
 }
 
+// For checkAuth()
 interface SignedinResponse{
   authenticated: boolean;
   username: string;
 }
 
+// For signin()
 interface SigninCredentials{
   password: string;
   username: string;
@@ -78,7 +83,7 @@ export class AuthService {
 
   // POST request to signin endpoint
   signin(credentials: SigninCredentials){
-    
+
     return this.http.post(`${this.rootUrl}/auth/signin`, credentials)
       .pipe(
         tap(() => {

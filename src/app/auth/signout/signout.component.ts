@@ -15,8 +15,9 @@ export class SignoutComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+
+    // After successful signout, navigate user to the root
     this.authService.signout().subscribe(() => {
-      // After successful signout, navigate user to the root
       this.router.navigateByUrl('/')
     });
   }
