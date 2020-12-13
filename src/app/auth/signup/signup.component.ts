@@ -45,7 +45,6 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(){
-    console.log('on submit')
     if (this.authForm.invalid){
       return;
     }
@@ -56,7 +55,6 @@ export class SignupComponent implements OnInit {
         this.router.navigateByUrl('/inbox');
       },
       error: err => {
-        console.log("error detected")
         if (!err.status){
           this.authForm.setErrors({ noConnection: true });
         }else{

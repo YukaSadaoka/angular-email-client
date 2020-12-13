@@ -34,7 +34,7 @@ interface SigninCredentials{
 
 export class AuthService {
   rootUrl = 'https://api.angular-email.com';
-  signedin$ = new BehaviorSubject(false);
+  signedin$ = new BehaviorSubject(null);
 
   constructor(private http: HttpClient) { }
 
@@ -47,13 +47,10 @@ export class AuthService {
 
   // POST request to sinup endpoint
   signup(credentials: SignupCredentials){
-    console.log('sending post request');
-    console.log(credentials)
    
     return this.http.post<SignupResponse>(`${this.rootUrl}/auth/signup`, credentials)
     .pipe(
       tap(()=>{
-        console.log("inside tap")
         this.signedin$.next(true);
       })
     );
@@ -81,7 +78,7 @@ export class AuthService {
 
   // POST request to signin endpoint
   signin(credentials: SigninCredentials){
-    console.log("About to post reqeust to singin")
+    
     return this.http.post(`${this.rootUrl}/auth/signin`, credentials)
       .pipe(
         tap(() => {
