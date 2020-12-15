@@ -2,12 +2,12 @@
     <div class="item" *ngFor="let email of emails">
         <a [routerLink]="email.id" routerLinkActive="active">
             <div class="content">
-                <div class="header">
+                <div class="header trim">
                     {{ email.subject }}
-                    <p>
-                        {{ email.from }}
-                    </p>
                 </div>
+                <p class="trim">
+                    {{ email.from }}
+                </p>
             </div>
         </a>
     </div>

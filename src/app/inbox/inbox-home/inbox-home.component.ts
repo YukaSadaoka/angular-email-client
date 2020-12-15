@@ -9,7 +9,5 @@ export class InboxHomeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
