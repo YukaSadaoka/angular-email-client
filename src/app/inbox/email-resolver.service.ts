@@ -11,7 +11,7 @@ import { EmailService } from './email.service';
   providedIn: 'root'
 })
 
-// Resolve for EmailService
+// Resolver for EmailService
 export class EmailResolverService implements Resolve<Email> {
   constructor(private emailService: EmailService, private route: Router){}
 
