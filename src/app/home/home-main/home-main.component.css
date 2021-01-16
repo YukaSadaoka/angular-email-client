@@ -1,0 +1,73 @@
+/* .ui.inverted.segment{
+    background-image: url("/assets/static/image/laptop.jpg");
+    background: none;
+    max-height: 500px;
+} */
+
+ 
+:host{
+    width: 100vw;
+}
+
+.masthead.segment {
+    background-image: url("/assets/static/image/laptop_medium.jpg");
+    background-size: cover;
+    min-height:  100vh;
+    padding: 1em 0em;
+}
+
+.ui.text.container.header{
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    background-color: rgb(153, 155, 187);
+    padding: 1em;
+}
+  
+    @media only screen and (max-width: 736px){
+        .ui.text.container.header{
+            position: absolute;
+            text-align: center;
+            top: 55%;
+            background-color: transparent;
+            padding: 1em;
+        }
+    } 
+
+
+    @media only screen and (max-width: 480px){
+
+        .masthead.segment{
+            min-height: 60hv !important;
+        }
+
+        .ui.header{
+            font-size: 1.2em;
+        }
+    } 
+
+.ui.vertical.stripe.segment{
+    margin: 10em 0;
+}
+
+.link-started{
+    text-decoration: none;
+}
+
+.link-started:hover{
+    text-decoration: none;
+}
+
+.ui.header{
+    font-size: 1.5em;
+}
+
+.wrapper-button{
+    margin-bottom: 2em;
+}
+
+    @media only screen and (max-width: 480px){
+        .ui.medium.image{
+            top: 20%
+        }
+    } 

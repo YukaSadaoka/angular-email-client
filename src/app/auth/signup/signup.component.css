@@ -2,6 +2,8 @@
     margin-bottom: 0.5em;
 }
 
-button {
-    margin: 0.5em;
+.ui.button{
+    margin: 1em 0;
 }
+
+

@@ -1,7 +1,7 @@
 <div class="ui container">
-    <div class="ui secondary pointing menu">
-        <a routerLink="/" class="item">Angular Email</a>
-        <div class="right menu">
+    <div class="ui secondary pointing menu header-wrapper">
+        <a routerLink="/" class="ui item">Angular Email</a>
+        <div class="ui right menu">
             <ng-container *ngIf="signedin$ | async">
                 <a class="ui item" routerLink="/inbox" routerLinkActive="active">
                     Inbox
@@ -11,7 +11,7 @@
                 </a>
             </ng-container>
            <ng-container *ngIf="!(signedin$ | async)">
-                <a class="ui item" routerLink="/" [routerLinkActiveOptions]="{ exact: true}" routerLinkActive="active">
+                <a class="ui item" routerLink="/signin" [routerLinkActiveOptions]="{ exact: true}" routerLinkActive="active">
                     Sing In
                 </a>
                 <a class="ui item" routerLink="/signup" routerLinkActive="active">
@@ -19,6 +19,34 @@
                 </a>
            </ng-container>
         </div>
-    </div>
+    </div>   
     <router-outlet></router-outlet>
+</div>
+<div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid wrapper-footer">
+        <div class="three wide column">
+          <h4 class="ui inverted header">About</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Sitemap</a>
+            <a href="#" class="item">Contact Us</a>
+            <a href="#" class="item">Office Locations</a>
+            <a href="#" class="item">Site Policy</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Services</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Email</a>
+            <a href="#" class="item">Calender</a>
+            <a href="#" class="item">Documentations</a>
+            <a href="#" class="item">Beginner Tour</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header">2021 Angular Email</h4>
+          <p>&#174; All Right Reserved.</p>
+        </div>
+      </div>
+    </div>
 </div>
