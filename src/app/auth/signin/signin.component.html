@@ -1,19 +1,22 @@
-<h3>Sing In</h3>
-<form (ngSubmit)="onSubmit()" class="ui form" [formGroup]="signinForm">
-    <app-input inputType="text" label="Username" [control]="signinForm.get('username')" ></app-input>
-    <app-input inputType="password" label="Password" [control]="signinForm.get('password')"></app-input>
-    <div *ngIf="signinForm.errors" class="ui red basic label">
-        <p *ngIf="signinForm.errors.credentials">
-            Invalid username or password
-        </p>
-        <p *ngIf="signinForm.errors.noConnection">
-            Sorry it seems no connection, try again later...
-        </p>
-        <p *ngIf="signinForm.errors.unknownError">
-            Unknown Error occurred
-        </p>
+<div class="ui middle aligned center aligned grid">
+    <div class="column">
+        <h3 class="ui header">Sing In</h3>
+        <form (ngSubmit)="onSubmit()" class="ui form" [formGroup]="signinForm">
+            <app-input inputType="text" label="Username" [control]="signinForm.get('username')" ></app-input>
+            <app-input inputType="password" label="Password" [control]="signinForm.get('password')"></app-input>
+            <div *ngIf="signinForm.errors" class="ui red basic label">
+                <p *ngIf="signinForm.errors.credentials">
+                    Invalid username or password
+                </p>
+                <p *ngIf="signinForm.errors.noConnection">
+                    Sorry it seems no connection, try again later...
+                </p>
+                <p *ngIf="signinForm.errors.unknownError">
+                    Unknown Error occurred
+                </p>
+            </div>
+            <div>
+                <button class="ui submit button primary">Submit</button>
+            </div>
+        </form>
     </div>
-    <div>
-        <button class="ui submit button primary">Submit</button>
-    </div>
-</form>

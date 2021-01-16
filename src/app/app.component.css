@@ -15,3 +15,9 @@
 .wrapper-footer{
     justify-content: space-evenly;
 }
+
+@media only screen and (max-width: 736px){
+    .header-wrapper{
+        display: none;
+    }
+} 

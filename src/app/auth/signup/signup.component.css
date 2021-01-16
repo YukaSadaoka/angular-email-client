@@ -7,3 +7,19 @@
 }
 
 
+.column{
+    max-width: 450px;
+}
+
+.grid {
+    height: 100%;
+    margin: 4em 0;
+}
+
+.ui.form{
+    font-size: 1.5em;
+}
+
+.ui.header{
+    font-size: 1.5em;
+}
